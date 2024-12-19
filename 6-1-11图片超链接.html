@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>动物园简介</title>
+    <!-- 添加样式表 -->
+    <style>
+        h1 {
+            color: rgb(170, 255, 0); /* 文字颜色 */
+            text-align: center; /* 文字居中 */
+            font-size: 100px; /* 字体大小 */
+            margin-top: 100px; /* 上边距 */
+        }
+        html {
+            background: url(image/bg.png);/* 背景图片 */
+            height: 1000px; /* 背景图片高度 */
+            background-size: cover; /* 背景图片大小 */
+            background-position: center; /* 背景图片居中 */
+        }
+        .small:hover{
+            transition: transform 0.5s; /* 过渡效果 .符号用于表示类选择器。.small表示选择所有具有small类的HTML元素*/
+            transform: scale(1.3); /* 悬停时放大 :hover是一个伪类选择器，用于选择具有small类的元素在鼠标悬停时的状态*/
+        }
+        .animal-info {/* 动物信息框 */
+            position: absolute;/* 绝对定位 */
+            top: 50%;/* 上边距 */
+            left: 50%;  /* 左边距 */
+            transform: translate(-50%, -50%);   /* 移动到中间 */
+            background-color: rgba(0, 0, 0, 0.5);   /* 背景颜色 */
+            color: white;   /* 文字颜色 */
+            padding: 20px;   /* 内边距 */
+            border-radius: 10px;    /* 圆角 */
+            font-size: 20px;     /* 字体大小 */
+            display: none;   /* 隐藏 */
+        }
+    </style>
+</head>
+<body>
+    <h1>动物园欢迎您</h1>
+    <div>
+        <a> 
+            <img src="image/bear-a.png" 
+                 class="small" 
+                 onclick="showInfo('这是一只可爱的狮子，它是森林之王！')" 
+                 onmouseout="hideInfo()"/>
+        </a><!--  -->
+        <a> <!-- 添加超链接 -->
+            <img src="image/chick-a.png" 
+                 class="small" 
+                 onclick="showInfo('这是一只活泼的猴子，性格非常调皮！')" 
+                 onmouseout="hideInfo()"/>
+        </a>
+        <a> <!-- 添加超链接 -->
+            <img src="image/dog2-a.png" class="small" 
+                 onclick="showInfo('这是一只温顺的长颈鹿，它是所有动物中最高的！')" 
+                 onmouseout="hideInfo()"/>
+        </a>
+    </div>
+
+    <div id="infoBox" class="animal-info" style="display:none;"></div>
+    <script>
+        // 显示动物信息
+        function showInfo(message) {
+            const infoBox = document.getElementById('infoBox');
+            infoBox.textContent = message;
+            infoBox.style.display = 'block';
+        }
+        // 隐藏动物信息
+        function hideInfo() {
+            const infoBox = document.getElementById('infoBox');
+            infoBox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
